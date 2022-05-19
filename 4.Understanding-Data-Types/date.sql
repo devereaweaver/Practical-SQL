@@ -16,3 +16,10 @@ VALUES ('2022-12-31 01:00 EST', '2 days'),
 	   (now(), '1 week');
 	   
 SELECT * FROM date_time_types;
+
+
+/* Use the table to experiment with interval data types in calculations */
+SELECT timestamp_column, 
+	   interval_column,
+       timestamp_column - interval_column AS new_date    -- interval calculation 
+FROM date_time_types;
