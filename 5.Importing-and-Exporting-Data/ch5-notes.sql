@@ -35,15 +35,21 @@ CREATE TABLE us_counties_pop_est_2019(
 );
  
  
+/* Import census table with PostgreSQL COPY */
+COPY us_counties_pop_est_2019
+FROM '/Users/devere/Data-Engineering/PracticalSQL/5.Importing-and-Exporting-Data/us_counties_pop_est_2019.csv'
+WITH (FORMAT CSV, HEADER);
+
+
+/* Inspect the new data */
+SELECT * FROM us_counties_pop_est_2019
+WHERE state_name = 'Florida' AND county_name LIKE 'Escambia%';
  
- 
- 
- 
- 
- 
- 
- 
- 
+/* 3 counties with the largest area_land values */
+SELECT county_name, state_name, area_land
+FROM us_counties_pop_est_2019
+ORDER BY area_land DESC
+LIMIT 3;
  
  
  
