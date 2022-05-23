@@ -91,8 +91,11 @@ FROM percent_change;
  * can lead one to craft questions as to why this is the case. 
  */
 
-
-
+/* Using Aggregate Functions for Averages and Sums */
+/* Use avg() and sum() aggregate functions on our table */
+SELECT sum(pop_est_2019) AS county_sum,    -- sum of entire population 2019
+	   round(avg(pop_est_2019), 0) AS county_average    -- average population 2019 for all counties 
+FROM us_counties_pop_est_2019;
 
 
 
